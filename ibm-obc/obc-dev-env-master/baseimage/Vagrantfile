@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# This vagrantfile creates an ubuntu-based image to serve as
+# the base box used in the development environment.  We install
+# items that are both expensive to build that also change
+# infrequently to optimize the developer experience.
+# This typically means we are only installing FOSS components
+# that lack formal packaging for Ubuntu (at least in the versions
+# we want).  Anything else is encouraged to be added in the
+# top-level environment that consumes this one.
+
+# This is the mount point for the sync_folders of the source
+SRCMOUNT = "/openchain"
+
+$script = <<SCRIPT
+set -x
+
+cd #{SRCMOUNT}
+./setup.sh
+
+SCRIPT
+
+Vagrant.configure('2') do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.synced_folder ".", "#{SRCMOUNT}"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "openchain-baseimage"
+    vb.customize ['modifyvm', :id, '--memory', '4096']
+    vb.cpus = 2
+  end
+
+  config.vm.provision :shell, inline: $script
+end

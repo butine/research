@@ -1,0 +1,12 @@
+# Local build binaries
+obc-peer
+node-cli/node-cli
+*.pyc
+/build/_workspace
+/bin
+.idea
+*.iml
+.DS_Store
+tags
+.tags
+/obcca/.obcca

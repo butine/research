@@ -1,0 +1,90 @@
+###############################################################################
+#
+#    CAs section
+#
+###############################################################################
+server:
+        version: "0.1"
+        rootpath: ".obc-ca"
+        port: ":50541"
+
+eca:
+
+    users:
+        # clients
+        userthread: 1 9gvZQRwhUq9q
+        user1: 1 9gvZQRwhUq9q
+        user2: 1 9gvZQRwhUq9q
+        TestRegistrationSameEnrollIDDifferentRole: 1 9gvZQRwhUq9q
+
+        # peers
+        peer: 2 9gvZQRwhUq9q
+
+        # validators
+        validator: 4 9gvZQRwhUq9q
+
+
+###############################################################################
+#
+#    Peer section
+#
+###############################################################################
+peer:
+    pki:
+        eca:
+            paddr: localhost:50541
+
+        tca:
+            paddr: localhost:50541
+
+        tlsca:
+            paddr: localhost:50541
+
+        tls:
+            enabled: true
+            rootcert:
+                file: ./.obc-ca/tlsca.cert
+            # The server name use to verify the hostname returned by TLS handshake
+            server-host-override:
+
+    fileSystemPath: .obc-peer
+    validator:
+        enabled: true
+        validity-period:
+            verification: false
+
+###############################################################################
+#
+#    Test parameters section
+#
+###############################################################################
+tests:
+
+    crypto:
+
+        users:
+
+            user1:
+                enrollid: user1
+                enrollpw: 9gvZQRwhUq9q
+
+            user2:
+                enrollid: user2
+                enrollpw: 9gvZQRwhUq9q
+
+            validator:
+                enrollid: validator
+                enrollpw: 9gvZQRwhUq9q
+
+            peer:
+                enrollid: peer
+                enrollpw: 9gvZQRwhUq9q
+
+            TestRegistrationSameEnrollIDDifferentRole:
+                enrollid: TestRegistrationSameEnrollIDDifferentRole
+                enrollpw: 9gvZQRwhUq9q
+
+            userthread:
+                enrollid: userthread
+                enrollpw: 9gvZQRwhUq9q
+
