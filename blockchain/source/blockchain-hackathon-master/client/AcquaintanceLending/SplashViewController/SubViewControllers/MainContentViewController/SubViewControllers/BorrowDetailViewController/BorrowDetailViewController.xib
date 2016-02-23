@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BorrowDetailViewController">
+            <connections>
+                <outlet property="lcBottom" destination="0mi-52-u7G" id="5cH-Yj-5Mc"/>
+                <outlet property="tableView" destination="hTX-BP-AbC" id="IL2-By-WE2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBottom" destination="X8p-mY-gQ8" id="p0b-P7-P38"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hTX-BP-AbC">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ltu-xL-dEP"/>
+                        <outlet property="delegate" destination="-1" id="k8B-cF-phc"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8p-mY-gQ8">
+                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOh-RE-XcB">
+                            <rect key="frame" x="15" y="8" width="570" height="44"/>
+                            <state key="normal" title="还款" backgroundImage="btn_normal"/>
+                            <state key="disabled" backgroundImage="btn_disable"/>
+                            <state key="highlighted" backgroundImage="btn_click"/>
+                            <connections>
+                                <action selector="onButtonRepayClicked:" destination="-1" eventType="touchUpInside" id="dpG-wx-7yB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vOh-RE-XcB" firstAttribute="top" secondItem="X8p-mY-gQ8" secondAttribute="top" constant="8" id="4p5-Fb-PLu"/>
+                        <constraint firstAttribute="bottom" secondItem="vOh-RE-XcB" secondAttribute="bottom" constant="8" id="HKt-cz-rdP"/>
+                        <constraint firstAttribute="height" constant="60" id="cti-kd-oAh"/>
+                        <constraint firstItem="vOh-RE-XcB" firstAttribute="leading" secondItem="X8p-mY-gQ8" secondAttribute="leading" constant="15" id="eT9-Nn-Paa"/>
+                        <constraint firstAttribute="trailing" secondItem="vOh-RE-XcB" secondAttribute="trailing" constant="15" id="kLv-RR-xup"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hTX-BP-AbC" secondAttribute="bottom" id="0mi-52-u7G"/>
+                <constraint firstAttribute="trailing" secondItem="X8p-mY-gQ8" secondAttribute="trailing" id="1hp-1m-KVj"/>
+                <constraint firstAttribute="bottom" secondItem="X8p-mY-gQ8" secondAttribute="bottom" id="62V-39-SRC"/>
+                <constraint firstItem="hTX-BP-AbC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7ZW-rp-CyO"/>
+                <constraint firstItem="hTX-BP-AbC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AWp-Vc-t2m"/>
+                <constraint firstItem="X8p-mY-gQ8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZxX-e8-J41"/>
+                <constraint firstAttribute="trailing" secondItem="hTX-BP-AbC" secondAttribute="trailing" id="eLe-oz-JcX"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_click" width="290" height="44"/>
+        <image name="btn_disable" width="290" height="44"/>
+        <image name="btn_normal" width="290" height="44"/>
+    </resources>
+</document>

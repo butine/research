@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ECButtonFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdI-dF-eNY">
+                    <rect key="frame" x="15" y="10" width="33" height="16"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJb-zl-I5M">
+                    <rect key="frame" x="15" y="30" width="290" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3GK-8b-vr8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Button" backgroundImage="btn_normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" backgroundImage="btn_disable"/>
+                    <state key="selected" backgroundImage="btn_click"/>
+                    <state key="highlighted" backgroundImage="btn_click"/>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqY-MB-nQ2">
+                    <rect key="frame" x="267" y="80" width="38" height="27"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="BJb-zl-I5M" secondAttribute="trailing" constant="15" id="1YW-3w-DqN"/>
+                <constraint firstItem="HdI-dF-eNY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="PgF-yg-Pcq"/>
+                <constraint firstItem="HdI-dF-eNY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="SiU-PC-Rnz"/>
+                <constraint firstAttribute="trailing" secondItem="vqY-MB-nQ2" secondAttribute="trailing" constant="15" id="U2t-eZ-Diq"/>
+                <constraint firstItem="BJb-zl-I5M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="WGi-59-F2E"/>
+                <constraint firstItem="BJb-zl-I5M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="Xym-wk-rIY"/>
+                <constraint firstItem="vqY-MB-nQ2" firstAttribute="top" secondItem="BJb-zl-I5M" secondAttribute="bottom" constant="10" id="ZSn-sk-ZHq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnDetail" destination="vqY-MB-nQ2" id="Ju0-6x-Vpx"/>
+                <outlet property="btnMain" destination="BJb-zl-I5M" id="hB6-9D-bRi"/>
+                <outlet property="labelTip" destination="HdI-dF-eNY" id="eEG-HX-9Ov"/>
+            </connections>
+            <point key="canvasLocation" x="225" y="318.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_click" width="290" height="44"/>
+        <image name="btn_disable" width="290" height="44"/>
+        <image name="btn_normal" width="290" height="44"/>
+    </resources>
+</document>

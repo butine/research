@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LeftMenuSectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="183.5"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxy-YW-EJZ">
+                    <rect key="frame" x="15" y="45" width="68" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-vg-SYq">
+                    <rect key="frame" x="15" y="85.5" width="290" height="44"/>
+                    <state key="normal" title="充值" backgroundImage="btn_normal"/>
+                    <state key="disabled" backgroundImage="btn_disable"/>
+                    <state key="highlighted" backgroundImage="btn_click"/>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入充值金额（元）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VKd-RG-WJj">
+                    <rect key="frame" x="93" y="33.5" width="212" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1zd-Ls-YaS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Rdh-vg-SYq" secondAttribute="bottom" constant="15" id="45r-UA-6Uh"/>
+                <constraint firstItem="Oxy-YW-EJZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="6eo-U5-bTv"/>
+                <constraint firstItem="Rdh-vg-SYq" firstAttribute="top" secondItem="VKd-RG-WJj" secondAttribute="bottom" constant="8" id="8Wt-vp-Ofh"/>
+                <constraint firstAttribute="trailing" secondItem="VKd-RG-WJj" secondAttribute="trailing" constant="15" id="CtS-ZN-siw"/>
+                <constraint firstAttribute="trailing" secondItem="Rdh-vg-SYq" secondAttribute="trailing" constant="15" id="CuY-60-8Gt"/>
+                <constraint firstItem="Rdh-vg-SYq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="bdB-Jb-3ip"/>
+                <constraint firstItem="VKd-RG-WJj" firstAttribute="leading" secondItem="Oxy-YW-EJZ" secondAttribute="trailing" constant="10" id="nCg-Zc-ojH"/>
+                <constraint firstItem="VKd-RG-WJj" firstAttribute="centerY" secondItem="Oxy-YW-EJZ" secondAttribute="centerY" id="prB-FH-Kcs"/>
+                <constraint firstItem="Oxy-YW-EJZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rXy-0n-hHg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="45r-UA-6Uh"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="btnRecharge" destination="Rdh-vg-SYq" id="WYi-DM-hdg"/>
+                <outlet property="textAmount" destination="VKd-RG-WJj" id="aJH-XB-kMJ"/>
+            </connections>
+            <point key="canvasLocation" x="253" y="244.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_click" width="290" height="44"/>
+        <image name="btn_disable" width="290" height="44"/>
+        <image name="btn_normal" width="290" height="44"/>
+    </resources>
+</document>

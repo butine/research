@@ -1,0 +1,55 @@
+{
+  "build": {
+    // Copy ./app/index.html (right hand side) to ./build/index.html.
+    "index.html": "index.html",
+    "app.js": [
+      // Paths relative to "app" directory that should be
+      // concatenated and processed during build.
+      "javascripts/lib/jquery.js",
+      "javascripts/lib/jquery-tiny-pubsub.js",
+      "javascripts/lib/sha256.js",
+      "javascripts/lib/handlebars.js",
+      "javascripts/lib/angular.min.js",
+      "javascripts/lib/transition.js",
+      "javascripts/lib/modal.js",
+      "javascripts/lib/Chart.min.js",
+      "javascripts/lib/toastr.min.js",
+      "javascripts/chart.js",
+      "javascripts/index.js",
+
+      "javascripts/constant.js",
+      "javascripts/utils.js",
+
+      "javascripts/filters.js",
+      "javascripts/app.js",
+      "javascripts/subscribes.js",
+      "javascripts/controllers/search_controller.js",
+      "javascripts/controllers/create_controller.js",
+      "javascripts/init_data.js",
+
+      "javascripts/watchers/record_watcher.js",
+      "javascripts/watchers/request_watcher.js",
+      "javascripts/watchers/response_watcher.js",
+      "javascripts/watch_data.js"
+    ],
+    "app.css": [
+      // Paths relative to "app" directory that should be
+      // concatenated and processed during build.
+      "stylesheets/app.scss"
+    ],
+    // Note: You can also include directories.
+    // This will copy a static images directory to the build directory.
+    "images/": "images/",
+    "fonts/": "fonts/"
+  },
+  "deploy": [
+    // Names of contracts that should be deployed to the network.
+    "CreditBook",
+    "OrderBook"
+  ],
+  "rpc": {
+    // Default RPC configuration.
+    "host": "localhost",
+    "port": 4999 // testrpc
+  }
+}

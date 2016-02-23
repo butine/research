@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Default Truffle App</title>
+  <link href='http://fonts.useso.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
+
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body ng-app="Nevermore">
+  <header class="navbar">
+    <img class="logo shake" src="./images/N.svg" alt="">
+
+    <button class="button btn-primary-outline button--naira button--naira-up upload" data-toggle="modal" data-target="#upload-modal">
+      <i class="button__icon icon icon-upload"></i>
+      <span>Upload</span>
+    </button>
+  </header>
+
+  <main class="main">
+    <h1 class="slogan">NEVERMORE</h1>
+
+    <div ng-controller="SearchCtrl">
+      <form class="search" action="">
+        <div class="form-group">
+          <input class="form-control" type="text" ng-model="query" placeholder="Type ID number to search" autofocus>
+        </div>
+      </form>
+
+      <section class="table-container" ng-if="query.length > 0">
+        <table class="table">
+          <thead>
+              <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Hash</th>
+                <th>Category</th>
+                <th>State</th>
+                <th>Provider</th>
+                <th>Price</th>
+                <th>Purchased</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="ban" ng-class="{owner: cr.owner}" ng-repeat="cr in (creditRecords() | filter: {identity: query}) track by $index">
+                <td><input type="checkbox" ng-click="changeCart($event, cr)" ng-disabled="!buyable(cr)"></td>
+                <td class="id">{{ cr.identity }}</td>
+                <td class="commit">{{cr.commit | limitTo: 8 }}</td>
+                <td class="type">{{ cr.category | categoryFilter }}</td>
+                <td class="status">{{ cr.state | stateFilter }}</td>
+                <td class="provider">{{ cr.provider | providerName }} <p class="start">★★★★★</p></td>
+                <td class="price">{{ cr.fee | currency:'￥' }}</td>
+                <td class="action uploaded">
+                  <img class="eye {{reviewable(cr) ? 'open' : 'close'}}" ng-src="images/eye-{{reviewable(cr) ? 'open' : 'close'}}.svg" ng-click="showDetailData(cr.commit)" alt="">
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+        <div class="checkout">
+          <div class="sum">
+            <p class="price">{{ getTotal() | currency: '￥' }}</p>
+            <p class="description">{{ cart.length }} ITEMS</p>
+          </div>
+
+          <button class="btn btn-primary-outline purchase" data-toggle="modal" data-target="#purchase-modal">Purchase</button>
+        </div>
+      </section>
+
+      <section class="modal fade" id="purchase-modal" tabindex="-1" role="dialog" aria-labelledby="purchase-modal">
+        <div class="modal-dialog purchase-form">
+          <h2 class="title">Purchase</h2>
+
+          <input type="hidden">
+
+          <p class="price">{{ getTotal() | currency:'￥' }}</p>
+          <button id="purchase-confirm" class="btn btn-primary-outline confirm" ng-click="buy()">Confirm</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+  <section class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="upload-modal">
+    <div class="modal-dialog upload-form"  ng-controller="CreateCtrl">
+      <h2 class="title">Upload Data</h2>
+
+      <div class="basic-data">
+        <h3 class="caption">Basic Data</h3>
+
+        <div class="form-group">
+          <label for="">Identity</label>
+          <input class="form-control" type="text" ng-model="creditRecord.identity">
+        </div>
+
+        <div class="form-group">
+          <label for="">Category</label>
+          <select class="form-control c-select" id="exampleSelect1"
+            ng-model="creditRecord.category"
+            ng-init="creditRecord.category = creditRecord.category || categoryOptions[0].value"
+            ng-options="option.value as option.name for option in categoryOptions">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Status</label>
+          <select class="form-control c-select" id="exampleSelect1"
+            ng-model="creditRecord.state"
+            ng-init="creditRecord.state = creditRecord.state || stateOptions[0].value"
+            ng-options="option.value as option.name for option in stateOptions">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Price</label>
+          <input class="form-control" type="text" ng-model="creditRecord.fee">
+        </div>
+
+        <button class="btn btn-primary-outline next-step">Next Step</button>
+      </div>
+
+      <div class="detail-data">
+        <h3 class="caption">Detail Data</h3>
+
+        <div class="form-group">
+          <label>Default?</label>
+
+          <div class="radio" ng-init="creditRecord.default = true">
+            <label>
+              <input type="radio" ng-value="true" ng-model="creditRecord.default">
+               YES
+            </label>
+            <label>
+              <input type="radio" ng-value="false" ng-model="creditRecord.default">
+               NO
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="">Principal</label>
+          <input class="form-control" type="text" ng-model="creditRecord.principal">
+        </div>
+
+        <div class="form-group">
+          <label for="">Annual Interest Rate</label>
+          <input class="form-control" type="text" ng-model="creditRecord.rate">
+        </div>
+
+        <div class="form-group">
+          <label for="">Duration</label>
+          <input class="form-control" type="text" ng-model="creditRecord.duration">
+        </div>
+
+        <div class="form-group">
+          <label for="">Start Date</label>
+          <input class="form-control" type="date" placeholder="e.g. 2015-01-09" ng-model="creditRecord.start_date">
+        </div>
+
+        <div class="form-group">
+          <label for="">Guarantor</label>
+          <input class="form-control" type="text" ng-model="creditRecord.guarantor">
+        </div>
+
+        <div class="form-group">
+          <label for="">Collateral</label>
+          <input class="form-control" type="text" ng-model="creditRecord.collateral">
+        </div>
+
+        <div class="form-group">
+          <label for="">Description</label>
+          <textarea class="form-control" name="name" rows="8" cols="40" ng-model="creditRecord.desc"></textarea>
+        </div>
+
+        <button class="btn btn-primary-outline confirm" ng-click="createCreditRecord()">Submit</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal fade" id="result-modal" tabindex="-1" role="dialog" aria-labelledby="result-modal">
+    <div class="modal-dialog purchase-result">
+      <div class="info">
+        <div class="profile">
+          <img class="avatar" src="images/avatar.svg" alt="">
+          <p class="identity">ID:445281199xxxx9332xxc</p>
+        </div>
+
+        <canvas id="myChart" class="radar"></canvas>
+
+        <div class="prompt">
+          <div class="description">
+            <h3 class="title">information understanding</h3>
+            <p>
+              <b>Trustworthiness</b> is the main parameter that characterizes risk factor of the borrower.
+              This is the key information, and thereby is triple-weighted in the diagram.
+            </p>
+
+            <p><b>History length</b> represents the quantity and time-span of the credit records.  </p>
+
+            <p><b>Provider reputation</b> indicates the accuracy of the information source.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item">
+          <p class="default no">Default: NO</p>
+          <p>Principal: 500,500,21</p>
+          <p>Annualized Rate: 50%</p>
+          <p>Guarantor: Jan</p>
+        </div>
+
+        <div class="item">
+          <p>Type: credit loan</p>
+          <p>Status: applying</p>
+          <p>Deadline: 3 years</p>
+          <p>Start Date: 2015-01-09</p>
+        </div>
+
+        <div class="item description">
+          <h3 class="title">Description</h3>
+          <p>Right, I'm gunna be that guy if nobody else will. Please stop asking to Press L - it makes me feel pressured and nervous</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item">
+          <p class="default yes">Default: YES</p>
+          <p>Principal: 500,500,21</p>
+          <p>Annualized Rate: 50%</p>
+          <p>Guarantor: Jan</p>
+        </div>
+
+        <div class="item">
+          <p>Type: credit loan</p>
+          <p>Status: applying</p>
+          <p>Deadline: 3 years</p>
+          <p>Start Date: 2015-01-09</p>
+        </div>
+
+        <div class="item description">
+          <h3 class="title">Description</h3>
+          <p>Right, I'm gunna be that guy if nobody else will. Please stop asking to Press L - it makes me feel pressured and nervous</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="modal fade" id="detail-data-modal" tabindex="-1" role="dialog" aria-labelledby="result-modal">
+    <div class="modal-dialog purchase-result">
+      <div class="info">
+        <div class="profile">
+          <img class="avatar" src="images/avatar.svg" alt="">
+          <p class="identity">ID: {{identity}}</p>
+        </div>
+
+        <canvas id="myChart2" class="radar"></canvas>
+
+        <div class="prompt">
+          <div class="description">
+            <h3 class="title">information understanding</h3>
+            <p>
+              <b>Trustworthiness</b> is the main parameter that characterizes risk factor of the borrower.
+              This is the key information, and thereby is triple-weighted in the diagram.
+            </p>
+
+            <p><b>History length</b> represents the quantity and time-span of the credit records.  </p>
+
+            <p><b>Provider reputation</b> indicates the accuracy of the information source.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="https://github.com/janx/nevermore" target="_blank">
+      <img class="github shake-slow" src="images/github.svg" alt="">
+    </a>
+  </footer>
+
+  <script id="detail-data-template" type="text/x-handlebars-template">
+    <div class="item">
+      <p class="default" ng-class="{yes: default, no: !default}">Default: {{default}}</p>
+      <p>Principal: {{principal}}</p>
+      <p>Annualized Rate: {{rate}}</p>
+      <p>Guarantor: {{guarantor}}</p>
+    </div>
+
+    <div class="item">
+      <p>Type: credit loan</p>
+      <p>Status: applying</p>
+      <p>Deadline: 3 years</p>
+      <p>Start Date: {{ start_date }}</p>
+    </div>
+
+    <div class="item description">
+      <h3 class="title">Description</h3>
+      <p>{{ desc }}</p>
+    </div>
+  </script>
+
+  <div class="mask"></div>
+</body>
+</html>

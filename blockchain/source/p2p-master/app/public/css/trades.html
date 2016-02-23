@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">p2p借贷</a>
+        </div>      
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li ><a href="/apply">申请借贷</a></li>
+            <li class="active"><a href="/trades">借款信息</a></li>          
+          </ul>  
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">借款列表</h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>借款编号</th>
+                  <th>借款人</th>
+                  <th>借款金额</th>
+                  <th>年化利率</th>
+                  <th>借款周期</th>
+                  <th>偿还方式</th>
+                  <th>借款用途</th>
+                  <th>担保方式</th>
+                  <th>完成进度</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="/trade/e001">e001</a></td>
+                  <td>Lorem</td>
+                  <td>1,000</td>
+                  <td>10%</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>10%</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModal" data-whatever="e001">买入</button></td>
+                </tr>
+                <tr>
+                  <td><a href="/trade/e002">e002</a></td>
+                  <td>amet</td>
+                  <td>1,000</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>10%</td>
+                  <td>10%</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModal" data-whatever="e002">买入</button></td>
+                </tr>
+                <tr>
+                  <td><a href="/trade/e003">e003</a></td>
+                  <td>Integer</td>
+                  <td>1,000</td>
+                  <td>10%</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>2016-6-6</td>
+                  <td>10%</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyModal" data-whatever="e003">买入</button></td>
+                </tr>
+                <!--<tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button></td>
+                </tr>-->               
+              </tbody>
+            </table>
+
+            <nav>
+              <ul id="pagination" class="pagination">             
+              </ul>
+            </nav>
+            
+            </div>
+          </div>
+
+          <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">买入</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="control-label">金额</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="control-label">数量</label>
+                      <input type="text" class="form-control" id="message-text"/>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary" id="goToBuy">确认</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/jquery.twbsPagination.min.js"></script>
+
+    <script src="/web3/dist/web3.min.js"></script>
+    <script src="/js/web3-bolck.js"></script>
+    <script src="/contract/config.js"></script>
+
+    <script>
+      $('#buyModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('买入' + recipient)
+        modal.find('.modal-body input').val(recipient)
+      })
+
+      $(function () {
+        var page = $('#pagination');
+        page.twbsPagination({
+            totalPages: 10,
+            startPage: 1,
+            visiblePages: 5,
+            initiateStartPageClick: true,
+            href: false,
+            hrefVariable: '{{number}}',
+            first: 'First',
+            prev: 'Previous',
+            next: 'Next',
+            last: 'Last',
+            loop: false,
+            onPageClick: null,
+            paginationClass: 'pagination',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first',
+            pageClass: 'page',
+            activeClass: 'active',
+            disabledClass: 'disabled'
+        });
+      });
+
+      var Web3 = require('web3');
+      var web3 = new Web3();
+      var Web3Block = new Web3Block(web3, "http://localhost:8545");
+
+      var coindbContract = web3.eth.contract(contract.CoindbAbi);
+      var address = contract.CoindbAddress;
+
+      var coindb = coindbContract.at(address);
+
+      $(document).ready(function(){
+        var coin = coindb.coins(5);
+        alert(web3.toAscii(coin[2]));
+      });
+    </script>
+
+
+  </body>
+</html>

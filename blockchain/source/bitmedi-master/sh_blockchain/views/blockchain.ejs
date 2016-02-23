@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BitMedi, Next Gen Medi Data Service</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+
+
+    <!-- BS  -->
+    <script src="blockjs/js/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+
+
+    <script src="CryptoJS/components/core-min.js"></script>
+    <script src="CryptoJS/rollups/aes.js"></script>
+    <script src="CryptoJS/components/enc-base64-min.js"></script>
+    <script src="CryptoJS/components/enc-utf16-min.js"></script>
+    <script src="CryptoJS/rollups/sha256.js"></script>
+    <script>
+
+      function encrypt(text,key){
+      return '' + CryptoJS.AES.encrypt(text,key);
+      }
+      
+      function decrypt(cipher,key){
+      var decrypted = CryptoJS.AES.decrypt(cipher,key);
+      return decrypted.toString(CryptoJS.enc.Utf8);
+      }
+      
+      function sha256(text) {
+      return CryptoJS.SHA256("Message").toString(CryptoJS.enc.Base64) 
+      }
+    </script>
+
+
+</head>
+<body>
+
+<script>
+    data = <%- JSON.stringify(cargo) %>;
+    //console.log(typeof(data));
+    //console.log(data.name);
+    //array1 = data.name.data;
+
+</script>
+
+
+
+<div class="modal fade" id="saveDialog" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Record</h4>
+      </div>
+      <div class="modal-body">
+	<form class="form-horizontal">
+<fieldset>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="caseid">Case ID</label>  
+  <div class="col-md-4">
+  <input id="caseid" name="caseid" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="gender">Gender</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">Male</span>
+      <input id="gender" name="gender" class="form-control" placeholder="Female" type="text" required="">
+    </div>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="age">Age</label>  
+  <div class="col-md-2">
+  <input id="age" name="age" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="birthday">Birth Day</label>  
+  <div class="col-md-2">
+  <input id="birthday" name="birthday" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="weight">Weight</label>  
+  <div class="col-md-2">
+  <input id="weight" name="weight" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="job">Job</label>  
+  <div class="col-md-2">
+  <input id="job" name="job" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date">Date</label>  
+  <div class="col-md-2">
+  <input id="date" name="date" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="symptom">Symptom</label>  
+  <div class="col-md-4">
+  <input id="symptom" name="symptom" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="history">Note</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="history" name="history"></textarea>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="addToFactom()">Save to Factom</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container-fluid">
+  <input type="button" class="btn btn-info btn-large" value="Add New Record" onclick="openDialog()"/>
+  <script>
+    function openDialog() {
+       $('#saveDialog').modal('show');
+    }
+    function addToFactom() {
+    $.getJSON("http://139.196.190.15:3002/info",function(data){
+    console.log(data);
+           var ID = data.ID;
+           var Key = data.Key;
+           var encrypted = encrypt(JSON.stringify(
+{    "_id": "56919158968e28b373fbc7e5",
+    "age": 40,
+    "name": "Graciela Branch",
+    "gender": "female",
+    "weight": 68,
+    "birthday": "Thu Aug 22 1996 12:22:03 GMT+0800 (CST)",
+    "job": "Deviltoe",
+    "sympton": 4,
+    "history": "Exercitation irure elit in ea consequat minim adipisicing nisi."
+  }           ),
+                                  Key);
+      
+           $.post("http://139.196.190.15:3002/append",{id:ID,encrypted:encrypted},function(result){
+               console.log(result);
+           });
+        });
+    }
+  </script>
+
+
+
+
+
+</div>
+
+
+
+
+<br>
+<svg id="p1" height="1200" width="900"></svg>
+
+
+
+
+<script src="blockjs/js/bootstrap.min.js"></script>
+<script src="blockjs/client/bundle.js"></script>
+</body>
+</html>

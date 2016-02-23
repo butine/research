@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LendDetailViewController">
+            <connections>
+                <outlet property="lcBottom" destination="Jbd-X8-KxC" id="Dwi-23-FSy"/>
+                <outlet property="tableView" destination="O1p-Ae-0qw" id="fzB-Tl-sSK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBottom" destination="jHq-p0-GBD" id="vCZ-yZ-0RV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="O1p-Ae-0qw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="iV1-3S-glZ"/>
+                        <outlet property="delegate" destination="-1" id="V8i-Pt-9In"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-p0-GBD">
+                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIJ-aH-CsQ">
+                            <rect key="frame" x="15" y="8" width="570" height="44"/>
+                            <state key="normal" title="借款" backgroundImage="btn_normal"/>
+                            <state key="disabled" backgroundImage="btn_disable"/>
+                            <state key="highlighted" backgroundImage="btn_click"/>
+                            <connections>
+                                <action selector="onButtonLendClicked:" destination="-1" eventType="touchUpInside" id="Yor-1w-iMo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="0aQ-fe-b3q"/>
+                        <constraint firstItem="eIJ-aH-CsQ" firstAttribute="leading" secondItem="jHq-p0-GBD" secondAttribute="leading" constant="15" id="7Et-KP-ZCu"/>
+                        <constraint firstItem="eIJ-aH-CsQ" firstAttribute="top" secondItem="jHq-p0-GBD" secondAttribute="top" constant="8" id="ABq-ju-zlQ"/>
+                        <constraint firstAttribute="height" constant="60" id="Aoa-lb-wCL"/>
+                        <constraint firstAttribute="trailing" secondItem="eIJ-aH-CsQ" secondAttribute="trailing" constant="15" id="Fdl-41-hg7"/>
+                        <constraint firstAttribute="bottom" secondItem="eIJ-aH-CsQ" secondAttribute="bottom" constant="8" id="eyQ-MV-3nG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="O1p-Ae-0qw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1a8-Xi-AmD"/>
+                <constraint firstItem="jHq-p0-GBD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="83A-yV-mfM"/>
+                <constraint firstAttribute="trailing" secondItem="jHq-p0-GBD" secondAttribute="trailing" id="BqX-Qz-H6G"/>
+                <constraint firstAttribute="trailing" secondItem="O1p-Ae-0qw" secondAttribute="trailing" id="INL-dg-ilh"/>
+                <constraint firstAttribute="bottom" secondItem="O1p-Ae-0qw" secondAttribute="bottom" id="Jbd-X8-KxC"/>
+                <constraint firstItem="O1p-Ae-0qw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Kzh-el-Grs"/>
+                <constraint firstAttribute="bottom" secondItem="jHq-p0-GBD" secondAttribute="bottom" id="cPm-6Z-MKZ"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_click" width="290" height="44"/>
+        <image name="btn_disable" width="290" height="44"/>
+        <image name="btn_normal" width="290" height="44"/>
+    </resources>
+</document>

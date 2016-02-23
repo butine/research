@@ -1,0 +1,401 @@
+@import "basic/rhythm/rhythm";
+@import "basic/variables";
+@import "basic/normalize";
+
+@import "mixins/mixins";
+
+@import "components/form";
+@import "components/button";
+@import "components/table";
+@import "components/modal";
+
+@import "animation";
+@import "shake";
+@import "icon-font";
+@import "naira";
+@import "toastr";
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+
+  h1, h2, h3,
+  p, span, a, div, table {
+    // font-weight: 300;
+    color: #999;
+  }
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  padding: 0 4em;
+  border-bottom: 1px solid #ececec;
+  background-color: #fff;
+  text-align: center;
+
+  .logo {
+    width: 50px;
+    height: 62.5px;
+    margin-top: 18px;
+    line-height: 76px;
+  }
+
+  .upload {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+  }
+
+  .link {
+    padding-left: 1em;
+    color: #999;
+  }
+}
+
+.main {
+  @include center-block(180px, 0);
+  position: relative;
+  flex-direction: column;
+  width: 780px;
+
+  .slogan {
+    font-size: 36px;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  .search {
+    margin-bottom: 2em;
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+
+      .form-control {
+        display: inline-block;
+        width: 586px;
+        padding: 1rem;
+        margin: 0 auto;
+      }
+
+      .upload {
+        width: 140px;
+        height: 54px;
+      }
+    }
+  }
+}
+
+.table-container {
+  position: relative;
+  padding: 0 1em;
+  border: 1px solid #CAE5F9;
+  margin-bottom: 2em;
+  background-color: #fff;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 42px;
+    width: 100%;
+    background-color: #F1F8FD;
+  }
+
+  .table {
+    z-index: 10;
+    position: relative;
+    color: #999;
+
+    .status {
+      &.applying { color: #0073DF; }
+      &.bad-debt { color: #EB716E; }
+      &.advance { color: #92CF7E; }
+      &.loaning { color: #8875CC; }
+    }
+
+    .start {
+      color: #999;
+    }
+
+    .eye {
+      width: 24px;
+      margin-top: 9px;
+      &.open {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+
+    .sum {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-left: 50px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -52px;
+        background: url('../images/rmb.svg') no-repeat center center;
+        width: 54px;
+        height: 62.5px;
+      }
+
+      .price {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #848484;
+      }
+
+      .description {
+        color: #999;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+
+    .purchase {
+
+    }
+  }
+
+}
+
+.purchase-form {
+  width: 360px;
+  padding: 2em;
+  margin: 6em auto;
+  border: 1px solid #CAE5F9;
+  margin-bottom: 2em;
+  background-color: #fff;
+  text-align: center;
+
+  .title {
+    margin-bottom: 1em;
+  }
+
+  .price {
+    margin-bottom: 1em;
+    color: #999;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
+
+.upload-form {
+  position: relative;
+  width: 720px;
+  padding: 2em 10em;
+  margin: 6em auto;
+  border: 1px solid #CAE5F9;
+  margin-bottom: 2em;
+  background-color: #fff;
+  text-align: left;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #66afe9;
+  }
+
+  .title {
+    margin-bottom: 2.4em;
+    color: #66afe9;
+    text-align: center;
+  }
+
+  .basic-data {
+    .next-step {
+      @include center-block();
+    }
+  }
+
+  .detail-data {
+    display: none;
+    margin-top: 36px;
+  }
+
+  .caption {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .form-group {
+    label {
+      color: #999;
+      font-weight: normal;
+      font-size: 12px;
+    }
+  }
+
+  .radio label, .checkbox label {
+    font-weight: 100;
+    margin-right: 2em;
+  }
+
+  .confirm {
+    @include center-block();
+  }
+}
+
+#result-modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.purchase-result {
+  width: 980px;
+  padding: 3em;
+  margin: 6em auto;
+  border: 1px solid #CAE5F9;
+  margin-bottom: 2em;
+  background-color: #fff;
+  text-align: center;
+
+  .title {
+    margin-bottom: 1em;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 160px;
+    padding: 2em;
+    border: 1px solid #ececec;
+    margin-bottom: 2em;
+    background-color: #fff;
+
+    .profile {
+      text-align: center;
+
+      .avatar {
+        width: 60px;
+      }
+
+      .identity {
+        font-size: 12px;
+      }
+    }
+
+    .radar {
+      width: 200px;
+      height: 200px;
+    }
+
+    .prompt {
+      text-align: right;
+      .description {
+        text-align: left;
+
+        .title {
+          margin-bottom: 1em;
+        }
+
+        p {
+          margin-bottom: 1em;
+          font-size: 12px;
+          b {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  .card {
+    display: flex;
+    padding: 2em;
+    border: 1px solid #ececec;
+    margin-bottom: 1em;
+    text-align: left;
+
+    &:hover {
+      background-color: rgba(169, 210, 243, 0.08);
+    }
+
+    p {
+      margin-bottom: 1em;
+      color: #999;
+      font-weight: normal;
+    }
+
+    .item {
+      padding-right: 3em;
+
+      &:first-child {
+        border-right: 1px solid #ececec;
+        margin-right: 3em;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        margin-right: 0;
+      }
+
+      &.description {
+        .title {
+          color: #999;
+          font-weight: normal;
+        }
+
+        max-width: 350px;
+      }
+    }
+
+    // &.applying { color: #0073DF; }
+    // &.bad-debt { color: #EB716E; }
+    // &.advance { color: #92CF7E; }
+    // &.loaning { color: #8875CC; }
+
+    .item {
+      .default {
+        &.no { color: #92CF7E; }
+        &.yes { color: #EB716E; }
+      }
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1em 2em;
+  text-align: right;
+
+  .github {
+    width: 28px;
+  }
+}
+
+.mask {
+  z-index: -10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: .3;
+}

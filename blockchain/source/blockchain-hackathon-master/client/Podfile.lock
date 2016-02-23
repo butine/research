@@ -1,0 +1,90 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DeviceUtil (1.3.5)
+  - DZNSegmentedControl (1.2.2)
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
+  - IQKeyboardManager (3.2.4)
+  - MBProgressHUD (0.9.2)
+  - MBProgressHUDExtensions (0.0.1):
+    - MBProgressHUD (~> 0.4)
+  - MYBlurIntroductionView (1.0.3)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
+  - NSDate-Extensions (0.0.1)
+  - PinYin4Objc (1.1.1)
+  - PureLayout (2.0.6)
+  - RESideMenu (4.0.7)
+  - RongCloudIMKit (2.3.9)
+  - SCViewShaker (1.0.2)
+  - SDWebImage (3.7.4):
+    - SDWebImage/Core (= 3.7.4)
+  - SDWebImage/Core (3.7.4)
+  - SQPersist (1.0.5):
+    - FMDB (~> 2.4)
+  - Toast (2.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - DeviceUtil (~> 1.2)
+  - DZNSegmentedControl (~> 1.2.2)
+  - IQKeyboardManager (~> 3.2.2)
+  - MBProgressHUD (~> 0.9.1)
+  - MBProgressHUDExtensions (~> 0.0.1)
+  - MYBlurIntroductionView (~> 1.0.3)
+  - NJKWebViewProgress (~> 0.2.3)
+  - NSDate-Extensions (~> 0.0.1)
+  - PinYin4Objc (~> 1.1.1)
+  - PureLayout (~> 2.0.5)
+  - RESideMenu (~> 4.0.7)
+  - RongCloudIMKit (~> 2.3.0)
+  - SCViewShaker (~> 1.0.2)
+  - SDWebImage (~> 3.7.1)
+  - SQPersist (~> 1.0.3)
+  - Toast (~> 2.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DeviceUtil: e5fe3663e4b9fc4c357ce8bcf1db258a17751f5c
+  DZNSegmentedControl: 8a7fdd743672742c692106f4456aaede10d43131
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MBProgressHUDExtensions: f39a37dcc0bf6c7622470c5f5874116ef86ca22e
+  MYBlurIntroductionView: b12651c25574580472ff34989a4c5b81c157009f
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
+  NSDate-Extensions: cbd68ecf5cf8a150644e184b4521d7734fea5ace
+  PinYin4Objc: 3fa9673610368330e2dfb688b1d19a35c3930a78
+  PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  RongCloudIMKit: a58c4fedf90ecf81e1d75ca6244145ddab83b178
+  SCViewShaker: ebd2937cc5ac1de808164bcb5be2a23c8a6e7ab6
+  SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
+  SQPersist: f8ccae93561303500f8c3b9957a9f41ee809bfe2
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+
+COCOAPODS: 0.38.2

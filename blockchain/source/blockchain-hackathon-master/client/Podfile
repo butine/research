@@ -1,0 +1,21 @@
+inhibit_all_warnings!
+
+pod 'AFNetworking', '~> 2.0'
+pod 'RESideMenu', '~> 4.0.7'
+pod 'SQPersist', '~> 1.0.3'
+pod 'MYBlurIntroductionView', '~> 1.0.3'
+pod 'MBProgressHUD', '~> 0.9.1'
+pod 'MBProgressHUDExtensions', '~> 0.0.1'
+pod 'NSDate-Extensions', '~> 0.0.1'
+pod 'SCViewShaker', '~> 1.0.2'
+pod 'IQKeyboardManager', '~> 3.2.2'
+pod 'Toast', '~> 2.4'
+pod 'NJKWebViewProgress', '~> 0.2.3'
+pod 'DeviceUtil', '~> 1.2'
+pod 'DZNSegmentedControl', '~> 1.2.2'
+pod 'PureLayout', '~> 2.0.5'
+pod 'SDWebImage', '~> 3.7.1'
+pod 'PinYin4Objc', '~> 1.1.1'
+pod 'RongCloudIMKit', '~> 2.3.0'
+
+

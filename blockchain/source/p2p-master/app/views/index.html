@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bignumber.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/web3-light.min.js"></script>
+<script src="js/web3-bolck.js"></script>
+<script type="text/javascript">
+    var Web3 = require('web3');
+    var web3 = new Web3();
+    var Web3Block = new Web3Block(web3, "http://localhost:8545");
+    var coinbase = "e10db01c56f46846479f3d062ad2e808a2b2a497";
+    var num = Web3Block.getBalance(coinbase);
+    alert(num);
+</script>
+<!--<script type="text/javascript">
+    function watchBalance() {
+        var coinbase = "e10db01c56f46846479f3d062ad2e808a2b2a497";
+        var url = "http://localhost:3000/getBalance/" +coinbase;
+        $.ajax({ 
+            type: "post", 
+            url: url, 
+            dataType: "json", 
+            success: function (data) { 
+                var balance = data['balance'];
+                alert("balance获取成功!balance为:" + balance);
+            }, 
+            error: function (XMLHttpRequest, textStatus, errorThrown) { 
+                alert("error"); 
+            } 
+        });
+    }
+
+</script>
+-->
+</head>
+<body>
+    <h1>coinbase balance</h1>
+    <button type="button">watch balance</button>
+    <div></div>
+    <div id="coinbase"></div>
+    <div id="original"></div>
+    <div id="current"></div>
+    <div id="diff"></div>
+</body>
+</html>
+

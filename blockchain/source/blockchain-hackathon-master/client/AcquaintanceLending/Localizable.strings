@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  AcquaintanceLending
+
+  Created by 李晓春 on 16/1/9.
+  Copyright © 2016年 ctcf. All rights reserved.
+*/
+//LoginViewController
+"login_title" = "登录";
+"login_forget_password" = "忘记密码？";
+"login_cell_account_info" = "账号";
+"login_cell_account_placeholder" = "请输入用户名或手机号";
+"login_cell_account_password" = "密码";
+"login_cell_password_placeholder" = "请输入密码";
+"login_error_login_failed_title" = "登录失败";
+"login_toast_session_timeout" = "身份已过期，请重新登录";
+
+
+
+//global
+"global_message_waiting" = "请稍后";
+"global_message_delete" = "删除";
+"global_message_next" = "下一步";
+"global_message_done" = "完成";
+"global_message_ok" = "确认";
+"global_message_confirm" = "确定";
+"global_message_cancel" = "取消";
+"global_setting" = "设置";
+"global_transfer" = "转单";
+"global_message_back" = "后退";
+"global_message_known" = "我知道了";
+"global_placeholder" = "必填";
+"global_unit_yuan" = "元";
+"global_alert_login_info_cant_be_null" = "用户名或密码不能为空";
+"global_alert_phone_number_cant_be_null" = "手机号不能为空";
+"global_alert_phone_number_format_incorrect" = "请填入正确格式的手机号";
+"global_alert_phone_check_cant_be_null" = "手机号或验证码不能为空";
+"global_alert_phone_check_simple_cant_be_null" = "验证码不能为空";
+"global_alert_error_unknown" = "未知错误";
+"global_alert_passwor_format_not_valid" = "请输入8位以上字母数字组合";
+"global_alert_payment_passwor_format_not_valid" = "请输入6位数字";
+"global_alert_error_network" = "网络错误";
+"global_alert_error_network_message" = "网络链接失败，请重试";
+"global_alert_error_network_reconnect" = "重新连接";
+"global_alert_new_or_check_password_cant_empty" = "新密码或校验密码不能为空";
+"global_alert_new_or_check_password_inconsistent" = "新密码与确认密码不一致";
+"global_alert_old_password_cant_empty" = "原始密码不能为空";
+"global_alert_real_name_cant_empty" = "真实姓名不能为空";
+"global_alert_personal_id_cant_empty" = "身份证号码不能为空";
+"global_alert_real_name_invalid" = "请填写正确的用户姓名";
+"global_alert_personal_id_invalid" = "请填写正确的身份证号";
+"global_alert_title_call" = "立即呼叫";
+"global_alert_text_call" = "呼叫";
+"global_input_real_name_placeholder" = "请填入姓名";
+"global_input_real_personal_id_placeholder" = "请填入身份证号码";
+
+

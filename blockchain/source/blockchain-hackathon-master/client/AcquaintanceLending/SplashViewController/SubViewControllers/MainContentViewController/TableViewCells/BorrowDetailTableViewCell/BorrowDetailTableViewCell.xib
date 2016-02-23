@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="BorrowDetailTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="129.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出借状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-Le-Esh">
+                        <rect key="frame" x="15" y="15" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="借款总额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxg-vP-Zpm">
+                        <rect key="frame" x="15" y="42" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-hU-QZW">
+                        <rect key="frame" x="81" y="42" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eza-Di-Hey">
+                        <rect key="frame" x="213.5" y="69" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还款日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hn-Zf-SMr">
+                        <rect key="frame" x="15" y="96" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksX-Nq-flv">
+                        <rect key="frame" x="251.5" y="69" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ7-ao-JRH">
+                        <rect key="frame" x="81" y="15" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-Rh-IMi">
+                        <rect key="frame" x="15" y="69" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-63-AwW">
+                        <rect key="frame" x="81" y="96.5" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqF-Hg-o00">
+                        <rect key="frame" x="81" y="69" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ksX-Nq-flv" firstAttribute="leading" secondItem="eza-Di-Hey" secondAttribute="trailing" constant="10" id="3di-dT-MoF"/>
+                    <constraint firstItem="1hn-Zf-SMr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="5C3-dR-UCb"/>
+                    <constraint firstItem="GQ7-ao-JRH" firstAttribute="centerY" secondItem="1n0-Le-Esh" secondAttribute="centerY" id="Coy-a4-Aeg"/>
+                    <constraint firstItem="GQ7-ao-JRH" firstAttribute="leading" secondItem="1n0-Le-Esh" secondAttribute="trailing" constant="10" id="E8b-Hz-3zp"/>
+                    <constraint firstItem="1n0-Le-Esh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="F65-NQ-EJA"/>
+                    <constraint firstItem="tqF-Hg-o00" firstAttribute="leading" secondItem="KXS-Rh-IMi" secondAttribute="trailing" constant="10" id="HaW-da-EEo"/>
+                    <constraint firstItem="KXS-Rh-IMi" firstAttribute="top" secondItem="jxg-vP-Zpm" secondAttribute="bottom" constant="10" id="J5Y-GI-MxA"/>
+                    <constraint firstItem="KXS-Rh-IMi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Oak-nx-aez"/>
+                    <constraint firstItem="eza-Di-Hey" firstAttribute="centerY" secondItem="tqF-Hg-o00" secondAttribute="centerY" id="QCB-cI-RCG"/>
+                    <constraint firstItem="Gu4-hU-QZW" firstAttribute="centerY" secondItem="jxg-vP-Zpm" secondAttribute="centerY" id="Tqi-n1-l0e"/>
+                    <constraint firstItem="tqF-Hg-o00" firstAttribute="leading" secondItem="Gu4-hU-QZW" secondAttribute="leading" id="UNd-rD-2PZ"/>
+                    <constraint firstItem="Cio-63-AwW" firstAttribute="leading" secondItem="1hn-Zf-SMr" secondAttribute="trailing" constant="10" id="V2b-a2-ife"/>
+                    <constraint firstItem="jxg-vP-Zpm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="W2U-Ef-pH7"/>
+                    <constraint firstItem="jxg-vP-Zpm" firstAttribute="top" secondItem="1n0-Le-Esh" secondAttribute="bottom" constant="10" id="ZKo-Dw-2vO"/>
+                    <constraint firstItem="ksX-Nq-flv" firstAttribute="centerY" secondItem="eza-Di-Hey" secondAttribute="centerY" id="fIp-70-iC3"/>
+                    <constraint firstAttribute="trailing" secondItem="ksX-Nq-flv" secondAttribute="trailing" id="gFq-Qc-qpo"/>
+                    <constraint firstItem="Gu4-hU-QZW" firstAttribute="leading" secondItem="jxg-vP-Zpm" secondAttribute="trailing" constant="10" id="hco-v9-jUN"/>
+                    <constraint firstItem="1n0-Le-Esh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="kUL-Q1-gih"/>
+                    <constraint firstItem="tqF-Hg-o00" firstAttribute="centerY" secondItem="KXS-Rh-IMi" secondAttribute="centerY" id="kVH-8n-9HM"/>
+                    <constraint firstItem="Cio-63-AwW" firstAttribute="leading" secondItem="tqF-Hg-o00" secondAttribute="leading" id="mPO-N6-3sE"/>
+                    <constraint firstAttribute="trailing" secondItem="1hn-Zf-SMr" secondAttribute="trailing" constant="10" id="qIn-iF-RcE"/>
+                    <constraint firstItem="Cio-63-AwW" firstAttribute="centerY" secondItem="1hn-Zf-SMr" secondAttribute="centerY" id="r22-7H-Rda"/>
+                    <constraint firstItem="1hn-Zf-SMr" firstAttribute="top" secondItem="KXS-Rh-IMi" secondAttribute="bottom" constant="10" id="xdW-rj-5uc"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="qIn-iF-RcE"/>
+                        <exclude reference="HaW-da-EEo"/>
+                        <exclude reference="V2b-a2-ife"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelAmount" destination="Gu4-hU-QZW" id="AKL-HE-5hY"/>
+                <outlet property="labelProfit" destination="ksX-Nq-flv" id="jQp-s4-dbA"/>
+                <outlet property="labelRate" destination="tqF-Hg-o00" id="XoA-wf-H1d"/>
+                <outlet property="labelRepayDate" destination="Cio-63-AwW" id="9pN-n0-Nkh"/>
+                <outlet property="labelStatus" destination="GQ7-ao-JRH" id="gER-sm-9ZD"/>
+            </connections>
+            <point key="canvasLocation" x="303" y="254"/>
+        </tableViewCell>
+    </objects>
+</document>

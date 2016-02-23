@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>申请贷款</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jquery-ui.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.json.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bignumber.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/web3.js"></script>
+    <script src="/js/web3-bolck.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+
+      function sendNewCoin(){
+        var title = $('#title').val();
+        var name = $('#name').val();
+        var create_note = $('#mark').val();
+        var end_time = $('#endtime').val();
+        var amount = $('#amount').val();
+        var ratetpl = $('#jxtypr').val();
+        var rate =$('#lx').val();
+        amount = parseFloat(amount);
+        rate = parseFloat(rate) * 1000;
+        var a = /^(\d{4})-(\d{2})-(\d{2})$/;
+        var checkname = /^[A-Za-z]+$/;
+        if(!name || name == "" || !checkname.test(name)){
+          alert("英文名称不符合规范");
+        }else if(!title || title == ""){
+          alert("名称不能为空");
+        }else if(isNaN(rate) || rate <=0){
+          alert("利息不正确");
+        }else if(isNaN(amount) || amount <=0){
+          alert("金额不正确");
+        }else if(!a.test(end_time)){
+          alert("还款日期格式不正确");
+        }else{
+          var id = coindb.ids(name);
+          if(id.greaterThan(0)){
+            alert("英文名称已经存在,请更换一个");
+          }else{
+            end_time = Date.parse(end_time)/1000;
+            $("#apply").attr("disabled", true);
+            var tx = newCoin(name, title, create_note, 0, end_time, amount, ratetpl, rate, defaultAccount);
+            if(tx){
+              var params = {name:name, amount:amount, ratetpl:ratetpl, rate:rate, end_time:end_time, create_note:create_note};
+              setWeb3Data('selldata', params, name, 0);
+              window.location.href = '/mysell';
+            }
+          }
+        }
+      }
+
+      $(function(){
+        if(checkDefaultAccount() <0){
+          window.location.href = '/home';
+        }
+        $('#opaccount').html(defaultAccount);
+        $( "#endtime" ).datepicker({
+          'dateFormat':'yy-mm-dd',
+          'minDate':new Date()
+        });
+        $('#apply').click(function(){
+          sendNewCoin();
+        });
+      });
+        
+
+    </script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">p2p借贷</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0);">当前账户: <span id="opaccount"></span></a></li>
+            <li><a href="#"><button type="button" class="btn btn-sm btn-info" onclick="window.location.href='/home';">切换操作账户</button></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <h4>账户</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/register">在线开户</a></li>
+            <li><a href="/check">身份认证</a></li>
+            <li><a href="/myaccount">个人账号</a></li>           
+          </ul> 
+          <h4>银行</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/bankapply">银行汇款</a></li>
+            <li><a href="/bankorder">银行处理</a></li>
+          </ul>
+          <h4>p2p公司</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/verifyuserinfo">审核用户资料</a></li>
+            <li><a href="/verifylist">审核债券发行</a></li>
+          </ul>
+          <h4>债券</h4>
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="/apply">申请借贷</a></li>
+            <li><a href="/list">债券列表</a></li>
+          </ul> 
+          <h4>交易</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/tradesell">卖出债券</a></li>
+            <li><a href="/tradebuy">买入债券</a></li>        
+          </ul>     
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header" id="tjsq">申请借款</h1>
+
+          <form id="tjf">
+            <div class="form-group">
+              <label>名称</label>
+              <input type="text" class="form-control" id="title" placeholder="名称" style="width:35%" required>
+            </div>
+            <div class="form-group">
+              <label>英文名称</label>
+              <input type="text" class="form-control" id="name" placeholder="英文名称" style="width:35%" required>
+            </div>
+            <div class="form-group">
+              <label for="">借款金额</label>
+              <input type="text" class="form-control" id="amount" placeholder="借款金额" style="width:35%">
+            </div> 
+            <div class="form-group">
+              <label for="">计息方式</label>
+              <select class="form-control" id="jxtypr" style="width:35%">
+                <option value="1">按天计息</option>
+                <!--<option value="2">按年计息</option>
+                <option value="3">固定利率</option>-->
+              </select>
+            </div> 
+            <div class="form-group">
+              <label for="">还款时间</label>
+              <input type="text" class="form-control" id="endtime" placeholder="还款时间" style="width:35%">
+            </div> 
+            <div class="form-group">
+              <label>利息</label>
+              <div class="input-group">
+                 <div class="input-group-addon">%</div>
+                <input type="text" class="form-control" id="lx" placeholder="年化利息"  style="width:15%">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">备注</label>
+              <input type="text" class="form-control" id="mark" placeholder="备注" style="width:35%">
+            </div>
+
+
+            <button type="button" class="btn btn-default" id="apply">提交申请</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="dialog" title="Basic dialog"></div>
+
+    </body>
+</html>

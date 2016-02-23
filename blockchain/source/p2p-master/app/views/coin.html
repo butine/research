@@ -1,0 +1,87 @@
+<!doctype>
+<html>
+
+<head>
+<script src="js/bignumber.min.js"></script>
+<script src="js/web3-light.min.js"></script>
+<script type="text/javascript">
+
+var Web3 = require('web3');
+var web3 = new Web3();
+web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
+var from = web3.eth.accounts[0];
+web3.eth.defaultAccount = from;
+
+var coindbContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"name","type":"bytes32"},{"name":"_target","type":"address"},{"name":"_proxy","type":"address"}],"name":"isApprovedFor","outputs":[{"name":"_r","type":"bool"}],"type":"function"},{"constant":false,"inputs":[{"name":"_offerCurrency","type":"bytes32"},{"name":"_offerValue","type":"uint256"},{"name":"_wantCurrency","type":"bytes32"},{"name":"_wantValue","type":"uint256"}],"name":"placeOrder","outputs":[{"name":"_offerId","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"isInit","outputs":[{"name":"_r","type":"bool"}],"type":"function"},{"constant":false,"inputs":[{"name":"_offerId","type":"uint256"}],"name":"cancelOrder","outputs":[{"name":"_success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"status","outputs":[{"name":"_r","type":"uint8"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"},{"name":"_a","type":"address"}],"name":"coinBalanceOf","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"getSender","outputs":[{"name":"_r","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"note","type":"string"},{"name":"starttime","type":"uint256"},{"name":"endtime","type":"uint256"},{"name":"value","type":"uint256"},{"name":"ratetpl","type":"uint256"},{"name":"ratevalue","type":"uint256"}],"name":"newCoin","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"coinRateValue","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"_offerId","type":"uint256"}],"name":"matchOrder","outputs":[{"name":"_success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"canTrade","outputs":[{"name":"_r","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"_from","type":"address"},{"name":"_val","type":"uint256"},{"name":"_to","type":"address"}],"name":"sendCoinFrom","outputs":[{"name":"_success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"},{"name":"_proxy","type":"address"}],"name":"isApproved","outputs":[{"name":"_r","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"orders","outputs":[{"name":"creator","type":"address"},{"name":"offerCurrency","type":"bytes32"},{"name":"offerValue","type":"uint256"},{"name":"wantCurrency","type":"bytes32"},{"name":"wantValue","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"getCount","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"_a","type":"address"}],"name":"approve","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"coinRateTpl","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"coins","outputs":[{"name":"starttime","type":"uint256"},{"name":"endtime","type":"uint256"},{"name":"name","type":"bytes32"},{"name":"note","type":"string"},{"name":"owner","type":"address"},{"name":"ratetpl","type":"uint256"},{"name":"ratevalue","type":"uint256"},{"name":"status","type":"uint8"}],"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"ids","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"}],"name":"coinBalance","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"value","type":"uint256"}],"name":"purchase","outputs":[{"name":"_success","type":"bool"}],"type":"function"},{"constant":false,"inputs":[{"name":"name","type":"bytes32"},{"name":"_val","type":"uint256"},{"name":"_to","type":"address"}],"name":"sendCoin","outputs":[{"name":"_success","type":"bool"}],"type":"function"},{"constant":false,"inputs":[],"name":"setCount","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"name","type":"bytes32"},{"name":"_a","type":"address"}],"name":"coinValueOf","outputs":[{"name":"_r","type":"uint256"}],"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"name","type":"bytes32"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Sent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":false,"name":"name","type":"bytes32"},{"indexed":false,"name":"id","type":"uint256"}],"name":"Create","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"name","type":"bytes32"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Purchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"currencyPair","type":"bytes32"},{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"offerValue","type":"uint256"},{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"wantValue","type":"uint256"}],"name":"Traded","type":"event"}]);
+
+//var address = "0x5e48db2cee70c698b862c0711b2e53628fda1a58";
+var address = "0x5e48db2cee70c698b862c0711b2e53628fda1a58";
+
+var coindb = coindbContract.at(address);
+window.onload = function () {
+    var filter = coindb.Create();
+    filter.watch(function (err, event) {
+        // live update all fields
+        console.log(event);
+        console.log(err);
+    });
+};
+//console.log(coindb.owner());
+function newCoin() {
+    var name = document.getElementById('registerOwner').value;
+    var create_note = document.getElementById('create_note').value;
+    var end_time = document.getElementById('end_time').value;
+    var amount = document.getElementById('amount').value;
+    var ratetpl = document.getElementById('ratetpl').value;
+    var rate = document.getElementById('rate').value;
+    //var tx = coindb.newCoin.sendTransaction(name, create_note, 0, end_time, amount, ratetpl, rate, {gas:1000000, from:web3.eth.accounts[0]});
+    var tx = coindb.newCoin.sendTransaction(name, create_note, 0, end_time, amount, ratetpl, rate, {gas:1000000, from:"0xe424a1165f7beb6ccf0942ea2faa1a2bffbfac69"});
+    document.getElementById('nameAvailability').innerText += ' Registering name in progress, please wait...' + tx   ;
+};
+
+function onRegisterOwnerKeyUp() {
+    var name = document.getElementById('registerOwner').value;
+    var id = coindb.ids(name);
+    if (id.greaterThan(0)) {
+        document.getElementById('nameAvailability').innerText = "This name is already register";
+    } else {
+        document.getElementById('nameAvailability').innerText = "This name is available. You can register it.";
+    }
+};
+
+</script>
+</head>
+<body>
+    <h1>Coin</h1>
+    <h3>create coin</h3>
+    <div>
+        <text>Check if name is available: </text>
+        <input type="text" id="registerOwner" onkeyup='onRegisterOwnerKeyUp()'></input>
+        <text id='nameAvailability'></text>
+    </div>
+    <div>
+        <text>note: </text>
+        <input type="text" id="create_note"></input>
+    </div>
+    <div>
+        <text>endtime: </text>
+        <input type="text" id="end_time" value="0"></input>
+    </div>
+    <div>
+        <text>amount: </text>
+        <input type="text" id="amount"></input>
+    </div>
+    <div>
+        <text>rate_tpl: </text>
+        <input type="text" id="ratetpl" value="1"></input>
+    </div>
+    <div>
+        <text>rate: </text>
+        <input type="text" id="rate" value="38"></input>
+    </div>
+    <div>
+        <button id="registerOwnerButton" type="button" onClick="newCoin()">new!</button>
+    </div>
+</body>
+</html>
+

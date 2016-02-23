@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>借款列表</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bignumber.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/web3.js"></script>
+    <script src="js/web3-bolck.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(function(){
+            if(checkDefaultAccount() <0){
+              window.location.href = '/home';
+            }
+            $('#opaccount').html(defaultAccount);
+          
+        });
+
+    </script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">p2p借贷</a>
+        </div> 
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0);">当前账户: <span id="opaccount"></span></a></li>
+            <li><a href="#"><button type="button" class="btn btn-sm btn-info" onclick="window.location.href='/home';">切换操作账户</button></a></li>
+        </ul>  
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <!--<ul class="nav nav-sidebar">
+            <li ><a href="/apply">申请借贷</a></li>
+            <li class="active"><a href="/list">借款信息</a></li>          
+          </ul>--> 
+           <h4>账户</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/register">在线开户</a></li>
+            <li><a href="/check">身份认证</a></li>
+            <li><a href="/myaccount">个人账号</a></li>           
+          </ul> 
+          <h4>银行</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/bankapply">银行汇款</a></li>
+            <li><a href="/bankorder">银行处理</a></li>
+          </ul>
+          <h4>p2p公司</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/verifyuserinfo">审核用户资料</a></li>
+            <li  class="active"><a href="/verifylist">审核债券发行</a></li>
+          </ul>
+          <h4>债券</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/apply">申请借贷</a></li>
+            <li><a href="/list">债券列表</a></li>
+          </ul> 
+          <h4>交易</h4>
+          <ul class="nav nav-sidebar">
+            <li><a href="/tradesell">卖出债券</a></li>
+            <li><a href="/tradebuy">买入债券</a></li>        
+          </ul> 
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">审核债券发行</h1>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>借款编号</th>
+                  <th>名称</th>
+                  <th>英文名称</th>
+                  <th>借款金额</th>
+                  <th>剩余金额</th>
+                  <th>借款人</th>
+                  <th>利率</th>
+                  <th>还款日期</th>
+                  <th>计息方式</th>
+                  <th>备注</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="lists">
+                <tr><td>6</td><td>测试9</td><td>TFGF</td><td>1222</td><td>1222</td><td>0xe424a1165f7beb6ccf0942ea2faa1a2bffbfac69</td><td>2%</td><td>2016-1-31</td><td>按天复利</td><td>12</td><td><button>审核</button></td></tr>
+                <tr><td>5</td><td>ceshi</td><td>TDC</td><td>100</td><td>100</td><td>0xe424a1165f7beb6ccf0942ea2faa1a2bffbfac69</td><td>2%</td><td>2016-1-31</td><td>按天复利</td><td>22222</td><td><button>审核</button></td></tr>
+                <tr><td>4</td><td>dd</td><td>dd</td><td>0</td><td>0</td><td>0x10f608aa24950441e87e992e08c56746d71e7e4c</td><td>0.038%</td><td>2016-1-9</td><td>按天复利</td><td>dd</td><td><button>审核</button></td></tr>
+                <tr><td>3</td><td>哈哈哈</td><td>hello</td><td>1</td><td>1</td><td>0xe424a1165f7beb6ccf0942ea2faa1a2bffbfac69</td><td>1%</td><td>2016-1-31</td><td>按天复利</td><td>11</td><td><button>审核</button></td></tr>
+                <tr><td>2</td><td>t</td><td>cc</td><td>1</td><td>0</td><td>0x10f608aa24950441e87e992e08c56746d71e7e4c</td><td>0.038%</td><td>2016-1-9</td><td>按天复利</td><td>n</td><td><button>审核</button></td></tr>
+              </tbody>
+            </table>
+
+      
+            </div>
+          </div>
+
+       
+          
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

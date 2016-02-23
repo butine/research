@@ -1,0 +1,21 @@
+Sat, 09 Jan 2016 19:23:56 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at server.js:91:13
+Sat, 09 Jan 2016 19:23:56 GMT body-parser deprecated undefined extended: provide extended option at node_modules/body-parser/index.js:105:29
+ReferenceError: /root/bitmedi/sh_blockchain/views/blockchain.ejs:48
+    46| 
+    47| <script>
+ >> 48|     data = <%- JSON.stringify(cargo) %>;
+    49|     //console.log(typeof(data));
+    50|     //console.log(data.name);
+    51|     //array1 = data.name.data;
+
+cargo is not defined
+    at eval (eval at <anonymous> (/root/bitmedi/sh_blockchain/node_modules/ejs/lib/ejs.js:464:12), <anonymous>:11:31)
+    at returnedFn (/root/bitmedi/sh_blockchain/node_modules/ejs/lib/ejs.js:493:17)
+    at View.exports.renderFile [as engine] (/root/bitmedi/sh_blockchain/node_modules/ejs/lib/ejs.js:350:31)
+    at View.render (/root/bitmedi/sh_blockchain/node_modules/express/lib/view.js:126:8)
+    at tryRender (/root/bitmedi/sh_blockchain/node_modules/express/lib/application.js:639:10)
+    at EventEmitter.render (/root/bitmedi/sh_blockchain/node_modules/express/lib/application.js:591:3)
+    at ServerResponse.render (/root/bitmedi/sh_blockchain/node_modules/express/lib/response.js:961:7)
+    at /root/bitmedi/sh_blockchain/server.js:143:10
+    at /root/bitmedi/sh_blockchain/node_modules/async/lib/async.js:52:16
+    at /root/bitmedi/sh_blockchain/node_modules/async/lib/async.js:361:13

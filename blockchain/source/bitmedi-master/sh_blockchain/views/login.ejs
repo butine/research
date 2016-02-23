@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BitMedi, Next Gen Medi History!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+
+
+    <!-- BS  -->
+    <script src="blockjs/js/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+
+
+    <script src="CryptoJS/components/core-min.js"></script>
+    <script src="CryptoJS/rollups/aes.js"></script>
+    <script src="CryptoJS/components/enc-base64-min.js"></script>
+    <script src="CryptoJS/components/enc-utf16-min.js"></script>
+    <script src="CryptoJS/rollups/sha256.js"></script>
+    <script>
+
+      function encrypt(text,key){
+      return '' + CryptoJS.AES.encrypt(text,key);
+      }
+      
+      function decrypt(cipher,key){
+      var decrypted = CryptoJS.AES.decrypt(cipher,key);
+      return decrypted.toString(CryptoJS.enc.Utf8);
+      }
+      
+      function sha256(text) {
+      return CryptoJS.SHA256("Message").toString(CryptoJS.enc.Base64) 
+      }
+    </script>
+<style>
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+  <form class="form-signin" action="/" method="post">
+        <h2 class="form-signin-heading">Welcome to BitMedi!</h2>
+        <label for="inputID" class="sr-only">User ID</label>
+        <input id="inputID" name="inputID" class="form-control" placeholder="32 Bytes User ID" required autofocus>
+        <label for="inputKey" class="sr-only">Secret</label>
+        <input type="password" id="inputKey" name="inputKey" class="form-control" placeholder="Secret" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Start</button>
+      </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Example app listening at http://:::3002
+string
+{"id":"hello","data":"testdata"}
+{ id: 'hello', data: 'testdata' }
+{ name: { id: 'hello', data: 'testdata' } }
+{"id":"chenhao","entries":[["b973a43476e98f87574e583b17f9d1f6a920f90eb39e0875ad71607a09e6e50a"],["b2aa7779123c2b7282f50eff6924771e99d48c99b3f53a59d16ddd6332d0b751"],["ab37efbe72c0d5521c7e7ff6e50f16d9feabf052c6875c16062efa58f03a3449"],["612b86759e275b026bae98961be6f926d22f6376a40c74fd8017488a4aa0dddb"]]}
+undefined
+[]

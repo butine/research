@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" media="all" href=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+    <script src="CryptoJS/components/core-min.js"></script>
+    <script src="CryptoJS/rollups/aes.js"></script>
+    <script src="CryptoJS/components/enc-base64-min.js"></script>
+    <script src="CryptoJS/components/enc-utf16-min.js"></script>
+    <script src="CryptoJS/rollups/sha256.js"></script>
+    <script src="./crypto-lib.js"></script>
+    </head>
+  
+  <body lang="en">
+    
+    <form id="test">
+      <p>
+	<label>Secret</label><br>
+	<input id="secret" value="Secret Passphrase">
+	</p>
+      <p>
+	<label>Text</label><br>
+	<textarea id="text" style="width: 500px; height: 200px">This is the secret message</textarea>
+	</p>
+
+      <input type="submit" id="submit">
+      </form>
+
+    <div id="output"></div>
+
+
+    <!--
+	http://www.davidebarranca.com/2012/10/crypto-js-tutorial-cryptography-for-dummies/
+	-->
+<script>
+var a = encrypt("i'm fucking dead!","password");
+console.log(a);
+console.log(decrypt(a,"password"));
+console.log(CryptoJS.SHA256("Message").toString(CryptoJS.enc.Base64));
+</script>
+    
+    </body>
+</html>
